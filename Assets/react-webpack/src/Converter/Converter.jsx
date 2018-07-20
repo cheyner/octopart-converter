@@ -34,16 +34,83 @@ export default React.createClass({
           },{
             label: 'manufacturer',
             value: function(row,field) {
-              return (row.name === 'CotoMos Solid State Relays' ? 'Coto Technology' : row.name);
+              return (row.MFG === 'CotoMos Solid State Relays' ? 'Coto Technology' : row.MFG);
             }
           },{
             label: 'quantity',
-            value: 'qty_avail'
+            value: 'QTY'
+          },{
+            label: 'moq',
+            value: 'min_ord'
           },{
             label: 'distributor-url',
             value: function(row, field) {
               return 'http://www.testco-inc.com/search/partnumber:'+encodeURI(row.item_no);
             }
+          },{
+            label: 'price-break-1',
+            value: function(row, field) {
+              return 1;
+            }
+          },{
+            label: 'price-usd-1',
+            value: 'prc_1'
+          },{
+            label: 'price-break-2',
+            value: function(row, field) {
+              return (row.prc_2 > 0 ? Number(row.qty_1) + 1 : '');
+            }
+          },{
+            label: 'price-usd-2',
+            value: 'prc_2'
+          },{
+            label: 'price-break-3',
+            value: function(row, field) {
+              return (row.prc_3 > 0 ? Number(row.qty_2) + 1 : '');
+            }
+          },{
+            label: 'price-usd-3',
+            value: 'prc_3'
+          },{
+            label: 'price-break-4',
+            value: function(row, field) {
+              return (row.prc_4 > 0 ? Number(row.qty_3) + 1 : '');
+            }
+          },{
+            label: 'price-usd-4',
+            value: 'prc_4'
+          },{
+            label: 'price-break-5',
+            value: function(row, field) {
+              return (row.prc_5 > 0 ? Number(row.qty_4) + 1 : '');
+            }
+          },{
+            label: 'price-usd-5',
+            value: 'prc_5'
+          },{
+            label: 'price-break-6',
+            value: function(row, field) {
+              return (row.prc_6 > 0 ? Number(row.qty_5) + 1 : '');
+            }
+          },{
+            label: 'price-usd-6',
+            value: 'prc_6'
+          },{
+            label: 'price-break-7',
+            value: function(row, field) {
+              return (row.prc_7 > 0 ? Number(row.qty_6) + 1 : '');
+            }
+          },{
+            label: 'price-usd-7',
+            value: 'prc_7'
+          },{
+            label: 'price-break-8',
+            value: function(row, field) {
+              return (row.prc_8 > 0 ? Number(row.qty_7) + 1 : '');
+            }
+          },{
+            label: 'price-usd-8',
+            value: 'prc_8'
           }
         ];
 
@@ -209,7 +276,10 @@ export default React.createClass({
                     {download}
 
                     <div className="text-muted">
-                      Note: Manufacturer "CotoMos Solid State Relays" will be renamed to "Coto Technology"
+                      Notes:
+                      <br />Relies on header names in your sample file <a href="Book1.csv">Book1.csv</a>.  Don't change the header names. 
+                      <br />Manufacturer "CotoMos Solid State Relays" will be renamed to "Coto Technology".
+                      <br />Supports up to 8 price breaks.  Special code handles wonky price break quantities that use the "high" quantity number.
                     </div>
 
                   </div>

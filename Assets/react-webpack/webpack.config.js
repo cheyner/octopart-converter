@@ -9,7 +9,7 @@ module.exports = {
 	},
 	output: {
 		publicPath: '/',
-		path: '../../webroot/js',
+		path: '../../js',
 		filename: '[name].js'
 	},
 	resolve: {
